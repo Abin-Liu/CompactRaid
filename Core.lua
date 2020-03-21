@@ -96,7 +96,7 @@ function addon:OnInitialize(db, dbIsNew, chardb, chardbIsNew)
 	db.version = self.numericVersion
 	chardb.version = self.numericVersion
 
-	self:Print(format(L["load prompt"], self.version))
+	--self:Print(format(L["load prompt"], self.version))
 	if self:IsDebugMode() then
 		self:Print(L["debug mode"].."  |cffff0000ON|r")
 	end

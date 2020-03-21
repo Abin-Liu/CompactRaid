@@ -19,7 +19,8 @@ local SPELL_DURATION = 5 -- Spell duration
 
 local object = CompactRaid:EmbedEventObject()
 
-function object:COMBAT_LOG_EVENT_UNFILTERED(timeStamp, event, hideCaster, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellId, spellName)
+function object:COMBAT_LOG_EVENT_UNFILTERED()
+    local timeStamp, event, hideCaster, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellId, spellName = CombatLogGetCurrentEventInfo()
 	if event == "SPELL_CAST_SUCCESS" and spellId == SPELL_ID and destGUID and sourceName == BOSS_NAME then
 		module:SetOverrideDebuff(destGUID, SPELL_ICON, 1, nil, GetTime() + SPELL_DURATION)
 	end

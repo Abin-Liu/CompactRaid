@@ -125,6 +125,7 @@ function addon:UpdateContainerSize()
 end
 
 container:SetScript("OnUpdate", function(self, elapsed)
+    if not addon.db.spacing then return end
 	updateElapsed = (updateElapsed or 0) + elapsed
 	if updateElapsed < 0.2 then
 		return
